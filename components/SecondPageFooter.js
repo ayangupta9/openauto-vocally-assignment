@@ -9,7 +9,7 @@ function SecondPageFooter () {
     <div className='w-100 d-flex flex-column pb-3'>
       <div className='d-flex flex-lg-row flex-column justify-content-between align-items-center'>
         <div className='flex-grow-1'>
-          <a class='navbar-brand ms-5' href='#'>
+          <a className='navbar-brand ms-5' href='/'>
             <img src={penAutologo.src} height='50' alt='' />
           </a>
         </div>
@@ -19,9 +19,7 @@ function SecondPageFooter () {
       </div>
 
       <div className='d-flex flex-lg-row flex-column justify-content-between align-items-center text-color'>
-        <p className='flex-fill ms-lg-5'>
-          Open Auto @ all rights reserved
-        </p>
+        <p className='flex-fill ms-lg-5'>Open Auto @ all rights reserved</p>
         <PolicyComponent />
         <Socials />
       </div>

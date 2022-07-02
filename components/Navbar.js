@@ -12,12 +12,12 @@ export default function Nav () {
       }}
       className='navbar px-5'
     >
-      <a class='navbar-brand' href='#'>
+      <a className='navbar-brand' href='/'>
         <img src={penAutologo.src} height='50' alt='' />
       </a>
 
       <div className='fw-light d-none navbar-components d-md-flex flex-row gap-5'>
-        <Contacts/>
+        <Contacts />
         <RoundedButton
           buttonStyle={{
             fontWeight: '500'

@@ -14,7 +14,7 @@ const UserSchema = Yup.object().shape({
 
 function MainPageForm () {
   return (
-    <div className='w-100 '>
+    <div className='w-100'>
       <Formik
         initialValues={{
           name: '',
@@ -37,8 +37,8 @@ function MainPageForm () {
           isSubmitting
           /* and other goodies */
         }) => (
-          <form className='mt-4 w-100' onSubmit={handleSubmit}>
-            <div className='text-start w-50 input-field-wrapper'>
+          <form className='mt-4 w-100 d-flex flex-column align-items-center align-items-lg-start' onSubmit={handleSubmit}>
+            <div className='text-start w-75 input-field-wrapper'>
               <input
                 style={{
                   border: 'solid 1px lightgray',
@@ -63,7 +63,7 @@ function MainPageForm () {
             </div>
             <br />
 
-            <div className=' text-start input-field-wrapper w-50'>
+            <div className=' text-start input-field-wrapper w-75'>
               <input
                 style={{
                   border: 'solid 1px lightgray',
@@ -88,10 +88,10 @@ function MainPageForm () {
             </div>
             <br />
 
-            <div className='form-group input-field-wrapper'>
+            <div className='form-group w-75 input-field-wrapper'>
               <RoundedButton
                 disabled={isSubmitting}
-                buttonClass='fw-bold w-50 submit-btn px-5 py-2 button'
+                buttonClass='fw-bold w-100 submit-btn px-5 py-2 button'
                 buttonText={'Submit'}
               />
             </div>
