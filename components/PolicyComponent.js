@@ -1,17 +1,24 @@
 import React from 'react'
+import Link from 'next/link'
 
 function PolicyComponent () {
   return (
     <div className='d-flex flex-row d-md-none justify-content-evenly w-100 my-3'>
-      <a className='link text-decoration-none text-color' href='#'>
-        Privacy Policy
-      </a>
-      <a className='link text-decoration-none text-color' href='#'>
-        Terms of Use
-      </a>
-      <a className='link text-decoration-none text-color' href='#'>
-        Cookie Policy
-      </a>
+      <Link href='#' passHref>
+        <a className='link text-decoration-none text-color' target={'_blank'}>
+          Privacy Policy
+        </a>
+      </Link>
+      <Link href='#' passHref>
+        <a className='link text-decoration-none text-color' target={'_blank'}>
+          Terms of Use
+        </a>
+      </Link>
+      <Link href='#' passHref>
+        <a className='link text-decoration-none text-color' target={'_blank'}>
+          Cookie Policy
+        </a>
+      </Link>
     </div>
   )
 }

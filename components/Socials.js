@@ -1,23 +1,25 @@
 import React from 'react'
-
+import Link from 'next/link'
 function Socials () {
+  const socialLinks = {
+    'bi-facebook': 'https://facebook.com',
+    'bi-twitter': 'https://twitter.com',
+    'bi-youtube': 'https://youtube.com',
+    'bi-linkedin': 'https://linkedin.com',
+    'bi-instagram': 'https://instagram.com'
+  }
+
   return (
     <div className='d-flex flex-row gap-5 justify-content-lg-end justify-content-center px-5 py-3'>
-      <a href='#'>
-        <i className='bi bi-facebook text-color'></i>
-      </a>
-      <a href='#'>
-        <i className='bi bi-twitter text-color'></i>
-      </a>
-      <a href='#'>
-        <i className='bi bi-youtube text-color'></i>
-      </a>
-      <a href='#'>
-        <i className='bi bi-linkedin text-color'></i>
-      </a>
-      <a href='#'>
-        <i className='bi bi-instagram text-color'></i>
-      </a>
+      {Object.entries(socialLinks).map(social => {
+        return (
+          <Link key={social[0]} href={social[1]} passHref>
+            <a target={'_blank'}>
+              <i className={`bi ${social[0]} text-color`}></i>
+            </a>
+          </Link>
+        )
+      })}
     </div>
   )
 }

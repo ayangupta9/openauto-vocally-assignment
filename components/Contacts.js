@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 function Contacts () {
   return (
@@ -10,7 +11,9 @@ function Contacts () {
 
       <span className='navbar-text'>
         <i className='bi bi-envelope-fill pe-2'></i>
-        <a href="mailto:service@openauto.ca" className='text-decoration-none text-color'>service@openauto.ca</a>
+        <Link href='mailto:service@openauto.ca'>
+          <a className='text-decoration-none text-color'>service@openauto.ca</a>
+        </Link>
       </span>
     </div>
   )

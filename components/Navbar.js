@@ -12,9 +12,11 @@ export default function Nav () {
       }}
       className='navbar px-5'
     >
-      <a className='navbar-brand' href='/'>
-        <img src={penAutologo.src} height='50' alt='' />
-      </a>
+      <Link href='/'>
+        <a className='navbar-brand' >
+          <img src={penAutologo.src} height='50' alt='' />
+        </a>
+      </Link>
 
       <div className='fw-light d-none navbar-components d-md-flex flex-row gap-5'>
         <Contacts />
