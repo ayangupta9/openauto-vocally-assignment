@@ -21,7 +21,7 @@ function SecondPageFooter () {
         </div>
       </div>
 
-      <div className='d-flex flex-lg-row flex-column justify-content-between align-items-center text-color'>
+      <div className='d-flex flex-lg-row flex-column justify-content-between align-items-center text-color fw-light'>
         <p className='flex-fill ms-lg-5'>Open Auto @ all rights reserved</p>
         <PolicyComponent />
         <Socials />
