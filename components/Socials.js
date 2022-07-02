@@ -14,7 +14,7 @@ function Socials () {
       {Object.entries(socialLinks).map(social => {
         return (
           <Link key={social[0]} href={social[1]} target={'_blank'}>
-            <i className={`bi ${social[0]} text-color`}></i>
+            <i className={`bi ${social[0]} text-color cursor-pointer`}></i>
           </Link>
         )
       })}
