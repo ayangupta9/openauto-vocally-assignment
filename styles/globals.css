@@ -7,9 +7,23 @@
   font-family: Open Sans;
 }
 
+.form-input {
+  border: solid 1px lightgray;
+  outline: 0;
+}
+
+.main-page-image{
+  max-width: 95%;
+}
+
 .background-dark {
   background-color: #10151e;
 }
+
+.openauto-icon-wrapper {
+  margin-left: 29px;
+}
+
 
 .openauto-icon {
   transition: ease-in 0.2s;

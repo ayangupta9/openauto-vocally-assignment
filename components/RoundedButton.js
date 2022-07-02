@@ -2,13 +2,13 @@ import React from 'react'
 
 function RoundedButton ({
   buttonText,
+  onClick,
   buttonClass = '',
-  buttonStyle = {},
   disabled = null
 }) {
   return (
     <button
-      style={buttonStyle}
+      onClick={onClick}
       disabled={disabled}
       className={`${buttonClass} rounded-pill`}
     >

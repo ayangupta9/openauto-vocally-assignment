@@ -26,9 +26,7 @@ function MainWrapper () {
         </div>
         <div className='px-0 d-flex flex-column align-items-center justify-content-center'>
           <img
-            style={{
-              maxWidth: '95%'
-            }}
+            className='main-page-image'
             src={mainPageImg.src}
             alt='Pickup Illustation'
           />

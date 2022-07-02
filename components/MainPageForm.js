@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import RoundedButton from './RoundedButton'
+import { toast } from 'react-toastify'
 
 const UserSchema = Yup.object().shape({
   name: Yup.string()
@@ -13,6 +14,37 @@ const UserSchema = Yup.object().shape({
 })
 
 function MainPageForm () {
+  const toastOptions = {
+    position: 'bottom-center',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined
+  }
+
+  let submitForm = async (name, email) => {
+    const body = JSON.stringify({
+      name: name.trim(),
+      email: email.trim()
+    })
+
+    let res = await fetch('/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: body
+    })
+
+    if (res.status === 200) {
+      return [true, res]
+    } else {
+      return [false, res]
+    }
+  }
+
   return (
     <div className='w-100'>
       <Formik
@@ -21,9 +53,23 @@ function MainPageForm () {
           email: ''
         }}
         validationSchema={UserSchema}
-        onSubmit={(values, { resetForm, setSubmitting }) => {
+        onSubmit={async (values, { resetForm, setSubmitting }) => {
           setSubmitting(false)
-          console.log(values)
+          const response = await submitForm(values.name, values.email)
+          if (response[0]) {
+            const jsonResponse = await response[1].json()
+            if (response[1].status === 200 && response[1].ok) {
+              toast.success(jsonResponse.message, toastOptions)
+            } else {
+              toast.error(jsonResponse.message, toastOptions)
+            }
+          } else {
+            toast.error(
+              'Some error occured. Data could not be registered.',
+              toastOptions
+            )
+          }
+
           resetForm()
         }}
       >
@@ -35,17 +81,15 @@ function MainPageForm () {
           handleBlur,
           handleSubmit,
           isSubmitting
-          /* and other goodies */
         }) => (
-          <form className='mt-4 w-100 d-flex flex-column align-items-center align-items-lg-start' onSubmit={handleSubmit}>
+          <form
+            className='mt-4 w-100 d-flex flex-column align-items-center align-items-lg-start'
+            onSubmit={handleSubmit}
+          >
             <div className='text-start w-75 input-field-wrapper'>
               <input
-                style={{
-                  border: 'solid 1px lightgray',
-                  outline: '0'
-                }}
                 placeholder='Enter Your Name'
-                className='rounded-pill p-2 ps-4 text-color w-100 background-dark'
+                className='rounded-pill form-input p-2 ps-4 text-color w-100 background-dark'
                 value={values.name}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -65,12 +109,8 @@ function MainPageForm () {
 
             <div className=' text-start input-field-wrapper w-75'>
               <input
-                style={{
-                  border: 'solid 1px lightgray',
-                  outline: '0'
-                }}
                 placeholder='Enter Your Email'
-                className='rounded-pill p-2 ps-4 text-color w-100 background-dark'
+                className='rounded-pill p-2 ps-4 form-input text-color w-100 background-dark'
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}

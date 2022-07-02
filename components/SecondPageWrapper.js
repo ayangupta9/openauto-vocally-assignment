@@ -11,7 +11,7 @@ function SecondPageWrapper () {
         <div className='flex-fill w-100 d-flex justify-content-center align-items-center mb-5 pb-5 pb-md-0 mb-md-0'>
           <img
             className='w-75'
-            src={pickUServiceImg.src} 
+            src={pickUServiceImg.src}
             alt='Pick U serivce via mobile app'
           />
         </div>
@@ -22,11 +22,8 @@ function SecondPageWrapper () {
             descText={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`}
           />
           <RoundedButton
-            buttonStyle={{
-              fontWeight: '500'
-            }}
             buttonText={'Download Mobile App'}
-            buttonClass={'px-5 py-2 mt-2 button'}
+            buttonClass={'px-5 py-2 mt-2 button fw-bold'}
           />
         </div>
       </div>
