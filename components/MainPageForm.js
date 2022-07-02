@@ -30,8 +30,9 @@ function MainPageForm () {
       email: email
     })
 
-    let res = await fetch('/api/users', {
+    let res = await fetch(window.location.href + '/api/users', {
       method: 'POST',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json'
       },

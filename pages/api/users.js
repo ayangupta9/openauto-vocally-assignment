@@ -5,7 +5,7 @@ export default async function handler (req, res) {
   const db = client.db('openauto-db')
   let bodyObject = req.body
 
-  console.log(bodyObject)
+  console.log(8, bodyObject)
 
   try {
     const newUser = await db.collection('userinfo').insertOne(bodyObject)
