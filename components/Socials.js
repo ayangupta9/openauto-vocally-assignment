@@ -13,8 +13,10 @@ function Socials () {
     <div className='d-flex flex-row gap-5 justify-content-lg-end justify-content-center px-5 py-3'>
       {Object.entries(socialLinks).map(social => {
         return (
-          <Link key={social[0]} href={social[1]} target={'_blank'}>
-            <i className={`bi ${social[0]} text-color cursor-pointer`}></i>
+          <Link key={social[0]} href={social[1]}>
+            <a className='text-decoration-none' target={'_blank'}>
+              <i className={`bi ${social[0]} text-color cursor-pointer`}></i>
+            </a>
           </Link>
         )
       })}

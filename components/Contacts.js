@@ -11,15 +11,10 @@ function Contacts () {
 
       <span className='navbar-text'>
         <i className='bi bi-envelope-fill pe-2'></i>
-        <Link
-        style={{
-          color:'#cfd1d4',
-          textDecoration:'none'
-        }}
-          href='mailto:service@openauto.ca'
-          className='text-decoration-none text-color'
-        >
-          service@openauto.ca
+        <Link href='mailto:service@openauto.ca'>
+          <a className='text-decoration-none text-color' target={'_blank'}>
+            service@openauto.ca
+          </a>
         </Link>
       </span>
     </div>
