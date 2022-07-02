@@ -38,6 +38,8 @@ function MainPageForm () {
       body: body
     })
 
+    console.log(res)
+
     if (res.status === 200) {
       return [true, res]
     } else {
