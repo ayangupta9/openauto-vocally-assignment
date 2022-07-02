@@ -26,8 +26,8 @@ function MainPageForm () {
 
   let submitForm = async (name, email) => {
     const body = JSON.stringify({
-      name: name.trim(),
-      email: email.trim()
+      name: name,
+      email: email
     })
 
     let res = await fetch('/api/users', {
