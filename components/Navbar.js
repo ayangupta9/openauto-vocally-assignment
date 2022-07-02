@@ -12,10 +12,8 @@ export default function Nav () {
       }}
       className='navbar px-5'
     >
-      <Link href='/'>
-        <a className='navbar-brand' >
-          <img src={penAutologo.src} height='50' alt='' />
-        </a>
+      <Link href='/' className='navbar-brand'>
+        <img src={penAutologo.src} height='50' alt='OpenAuto Logo' />
       </Link>
 
       <div className='fw-light d-none navbar-components d-md-flex flex-row gap-5'>
