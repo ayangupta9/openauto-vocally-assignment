@@ -139,8 +139,8 @@ function MainPageForm () {
 
             <div className='form-group w-75 input-field-wrapper'>
               {isSubmitting ? (
-                <div class='spinner-border text-light' role='status'>
-                  <span class='visually-hidden'>Loading...</span>
+                <div className='spinner-border text-light' role='status'>
+                  <span className='visually-hidden'>Loading...</span>
                 </div>
               ) : (
                 <RoundedButton
