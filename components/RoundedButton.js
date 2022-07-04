@@ -10,9 +10,9 @@ function RoundedButton ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${buttonClass} rounded-pill`}
+      className={`${buttonClass.toString()} rounded-pill`}
     >
-      {buttonText}
+      {buttonText.toString()}
     </button>
   )
 }

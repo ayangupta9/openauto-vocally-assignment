@@ -24,10 +24,11 @@ function MainPageForm () {
     progress: undefined
   }
 
-  let submitForm = async (name, email) => {
+  let submitForm = async (name, email, joined_on) => {
     const body = JSON.stringify({
-      name: name,
-      email: email
+      name,
+      email,
+      joined_on
     })
 
     let res = await fetch(window.location.href + '/api/users', {
@@ -57,8 +58,12 @@ function MainPageForm () {
         }}
         validationSchema={UserSchema}
         onSubmit={async (values, { resetForm, setSubmitting }) => {
-          setSubmitting(false)
-          const response = await submitForm(values.name, values.email)
+          setSubmitting(true)
+          const response = await submitForm(
+            values.name,
+            values.email,
+            new Date().toLocaleString()
+          )
           if (response[0]) {
             const jsonResponse = await response[1].json()
             if (response[1].status === 200 && response[1].ok) {
@@ -73,6 +78,7 @@ function MainPageForm () {
             )
           }
 
+          setSubmitting(false)
           resetForm()
         }}
       >
@@ -132,11 +138,17 @@ function MainPageForm () {
             <br />
 
             <div className='form-group w-75 input-field-wrapper'>
-              <RoundedButton
-                disabled={isSubmitting}
-                buttonClass='fw-bold w-100 submit-btn px-5 py-2 button'
-                buttonText={'Submit'}
-              />
+              {isSubmitting ? (
+                <div class='spinner-border text-light' role='status'>
+                  <span class='visually-hidden'>Loading...</span>
+                </div>
+              ) : (
+                <RoundedButton
+                  disabled={isSubmitting}
+                  buttonClass='fw-bold w-100 submit-btn px-5 py-2 button'
+                  buttonText={'Submit'}
+                />
+              )}
             </div>
           </form>
         )}

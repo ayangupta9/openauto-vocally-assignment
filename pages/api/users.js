@@ -6,11 +6,8 @@ export default async function handler (req, res) {
 
   if (req.method === 'POST') {
     let bodyObject = req.body
-    console.log(8, bodyObject)
-    console.log(req)
     try {
       const newUser = await db.collection('userinfo').insertOne(bodyObject)
-      console.log(newUser)
       res.status(200).json({
         message: `Thanks for registering, ${req.body.name}.`
       })
